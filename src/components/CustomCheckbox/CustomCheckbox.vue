@@ -1,0 +1,65 @@
+<template>
+  <div class="custom-checkbox">
+    <label for="checkbox" class="custom-checkbox__label">
+      <div class="custom-checkbox__box d-flex align-items-center justify-content-center position-relative me-2">
+        <svg v-if="value" width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="custom-checkbox__checked" d="M2 5.92857L8 12L17 2" stroke-width="3" />
+        </svg>
+      </div>
+      <input
+        id="checkbox"
+        class="custom-checkbox__input"
+        type="checkbox"
+        :checked="value"
+        style="display: none"
+        @input="emitChange" />
+      {{ label }}
+    </label>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "CustomCheckbox",
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    value: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    emitChange(e) {
+      this.$emit("input", e.target.checked);
+    }
+  },
+};
+</script>
+
+<style scoped>
+.custom-checkbox__label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox__input {
+  margin-right: 0.5rem;
+}
+
+.custom-checkbox__box {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #d3d3d3;
+  background-color: #f5f5f5;
+}
+
+.custom-checkbox__checked {
+  stroke: #0d6efd;
+ }
+</style>
