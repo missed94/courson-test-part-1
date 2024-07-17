@@ -9,6 +9,7 @@
       <CustomInputNumber
         class="mb-4"
         label="Number"
+        :min="1"
         v-model="formData.numberInput"
       />
       <CustomTextarea
@@ -93,7 +94,7 @@ export default {
       formData: {
         textInput: "",
         textareaInput: "",
-        numberInput: 0,
+        numberInput: 1,
         checkbox: false,
         radio: "",
         staticSelect: "",
@@ -102,8 +103,8 @@ export default {
         files: [],
       },
       radioOptions: [
-        { value: true, text: "Radio 1" },
-        { value: false, text: "Radio 2" },
+        { value: "radio1", text: "Radio 1" },
+        { value: "radio2", text: "Radio 2" },
       ],
       staticOptions: [
         { value: "option1", text: "Option 1" },
@@ -118,9 +119,9 @@ export default {
       this.formData = {
         textInput: "",
         textareaInput: "",
-        numberInput: 0,
+        numberInput: 1,
         checkbox: false,
-        radio: "",
+        radio: null,
         staticSelect: "",
         dynamicSelect: "",
         color: "#000000",
@@ -129,8 +130,12 @@ export default {
       this.dynamicOptions = [];
     },
     handleSubmit() {
-      alert("Form submitted");
-      this.resetForm();
+      if (Object.values(this.formData).every((i) => !!i)) {
+        alert("Form submitted");
+        this.resetForm();
+      } else {
+        alert("All fields are required");
+      }
     },
     fetchDynamicOptions: debounce(async function (text) {
       try {
