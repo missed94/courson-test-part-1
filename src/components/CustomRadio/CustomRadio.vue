@@ -15,7 +15,7 @@
         type="radio"
         :name="name"
         :checked="value === input.value"
-        style="display: none;"
+        style="display: none"
         @change="onInput(input.value)"
       />
     </div>
@@ -29,10 +29,6 @@ export default {
     name: { type: String, default: "" },
     value: { type: [String, Boolean], default: "" },
     options: { type: Array, required: true },
-  },
-  model: {
-    event: "input",
-    prop: "value",
   },
   methods: {
     onInput(value) {

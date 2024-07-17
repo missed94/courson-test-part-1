@@ -1,20 +1,34 @@
 <template>
-  <div class="custom-checkbox">
-    <label for="checkbox" class="custom-checkbox__label">
-      <div class="custom-checkbox__box d-flex align-items-center justify-content-center position-relative me-2">
-        <svg v-if="value" width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="custom-checkbox__checked" d="M2 5.92857L8 12L17 2" stroke-width="3" />
+  <div class="custom-checkbox" @click.stop="click">
+    <div class="custom-checkbox__label">
+      <div
+        class="custom-checkbox__box d-flex align-items-center justify-content-center position-relative me-2"
+      >
+        <svg
+          v-if="value"
+          width="19"
+          height="15"
+          viewBox="0 0 19 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="custom-checkbox__checked"
+            d="M2 5.92857L8 12L17 2"
+            stroke-width="3"
+          />
         </svg>
       </div>
       <input
-        id="checkbox"
         class="custom-checkbox__input"
         type="checkbox"
+        ref="checkbox"
         :checked="value"
         style="display: none"
-        @input="emitChange" />
-      {{ label }}
-    </label>
+        @input="emitChange"
+      />
+      <span v-if="label">{{ label }}</span>
+    </div>
   </div>
 </template>
 
@@ -24,17 +38,20 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      default: "",
     },
     value: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     emitChange(e) {
       this.$emit("input", e.target.checked);
-    }
+    },
+    click() {
+      this.$refs.checkbox.click();
+    },
   },
 };
 </script>
@@ -61,5 +78,5 @@ export default {
 
 .custom-checkbox__checked {
   stroke: #0d6efd;
- }
+}
 </style>

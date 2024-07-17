@@ -1,8 +1,8 @@
 <template>
   <div class="base-layout">
-    <HeaderComponent/>
+    <HeaderComponent />
     <slot />
-    <FooterComponent/>
+    <FooterComponent />
   </div>
 </template>
 
@@ -12,9 +12,8 @@ import FooterComponent from "@/components/Footer";
 
 export default {
   name: "BaseLayout",
-  components: { HeaderComponent, FooterComponent }
-}
-
+  components: { HeaderComponent, FooterComponent },
+};
 </script>
 
 <style scoped>

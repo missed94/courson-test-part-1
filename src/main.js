@@ -4,8 +4,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./styles/app.css";
 import App from "./App.vue";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount("#app")
+  render: (h) => h(App),
+}).$mount("#app");

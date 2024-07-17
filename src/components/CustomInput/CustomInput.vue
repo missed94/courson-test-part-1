@@ -1,12 +1,13 @@
 <template>
   <div class="custom-input">
-    <label for="text-input" class="custom-input__label">{{ label }}</label>
+    <label v-if="label" class="custom-input__label">{{ label }}</label>
     <input
-      id="text-input"
-      class="custom-input__input"
-      :type="type" :value="value"
+      class="custom-input__input form-control"
+      :type="type"
+      :value="value"
       :placeholder="placeholder"
-      @input="updateValue" />
+      @input="updateValue"
+    />
   </div>
 </template>
 
@@ -16,7 +17,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      default: "",
     },
     type: {
       type: String,
@@ -24,17 +25,17 @@ export default {
     },
     value: {
       type: String,
-      default: ""
+      default: "",
     },
     placeholder: {
       type: String,
-      default: "Enter value"
-    }
+      default: "Enter value",
+    },
   },
   methods: {
     updateValue(e) {
       this.$emit("input", e.target.value);
-    }
+    },
   },
 };
 </script>

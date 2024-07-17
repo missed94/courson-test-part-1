@@ -1,9 +1,8 @@
 <template>
   <div class="custom-select">
-    <label for="select" class="custom-select__label">{{ label }}</label>
+    <label class="custom-select__label">{{ label }}</label>
     <div class="dropdown">
       <input
-        id="select"
         class="custom-select__input form-control"
         ref="input"
         type="text"
@@ -13,7 +12,10 @@
         @focus="showDropdown = true"
         @blur="showDropdown = false"
       />
-      <div class="dropdown-menu overflow-y-scroll" :class="{ show: showDropdown }">
+      <div
+        class="dropdown-menu overflow-y-scroll"
+        :class="{ show: showDropdown }"
+      >
         <div v-if="loading" class="dropdown-item">Loading...</div>
         <div v-else>
           <div
@@ -24,7 +26,9 @@
           >
             {{ option.text }}
           </div>
-          <div v-if="!filteredOptions.length" class="dropdown-item">No matches found</div>
+          <div v-if="!filteredOptions.length" class="dropdown-item">
+            No matches found
+          </div>
         </div>
       </div>
     </div>
@@ -37,11 +41,11 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      required: true,
     },
     value: {
       type: [String, Number],
-      default: ""
+      default: "",
     },
     loading: {
       type: Boolean,
@@ -53,7 +57,7 @@ export default {
     },
     options: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
   },
   data() {
@@ -67,10 +71,10 @@ export default {
       if (this.isDynamic) {
         return this.options;
       }
-      return this.options.filter(option =>
+      return this.options.filter((option) =>
         option.text.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
-    }
+    },
   },
   watch: {
     value(newVal) {
@@ -81,7 +85,7 @@ export default {
   },
   methods: {
     onInput() {
-      if (!this.isDynamic) return
+      if (!this.isDynamic) return;
       this.$emit("search", this.searchQuery);
     },
     selectOption(option) {
@@ -90,12 +94,12 @@ export default {
       this.showDropdown = false;
       this.$refs.input.blur();
     },
-  }
+  },
 };
 </script>
 
 <style scoped>
-.custom-select__label{
+.custom-select__label {
   display: block;
   margin-bottom: 0.5rem;
 }

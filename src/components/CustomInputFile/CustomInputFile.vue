@@ -1,14 +1,13 @@
 <template>
   <div class="custom-input-file form-group">
-    <label for="file" class="custom-input-file__label">{{ label }}</label>
+    <label class="custom-input-file__label">{{ label }}</label>
     <input
-        class="form-control"
-        id="file"
-        ref="input"
-        type="file"
-        :files="value"
-        :multiple="multiple"
-        @change="updateValue"
+      class="form-control"
+      ref="input"
+      type="file"
+      :files="value"
+      :multiple="multiple"
+      @change="updateValue"
     />
   </div>
 </template>
@@ -19,7 +18,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true
+      required: true,
     },
     value: {
       type: Array,
@@ -28,20 +27,18 @@ export default {
     multiple: {
       type: Boolean,
       default: false,
-    }
+    },
   },
 
   methods: {
     updateValue(event) {
       event.stopPropagation();
-      const element = event.target
-      const files = element.files
-          ? Array.from(element.files)
-          : [];
+      const element = event.target;
+      const files = element.files ? Array.from(element.files) : [];
       if (!files.length) return;
       this.$emit("input", files);
-    }
-  }
+    },
+  },
 };
 </script>
 
