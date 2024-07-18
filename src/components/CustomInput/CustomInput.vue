@@ -1,8 +1,8 @@
 <template>
   <div class="custom-input">
-    <label v-if="label" class="custom-input__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <input
-      class="custom-input__input form-control"
+      class="custom-input__input form-control p-2 w-100"
       :type="type"
       :value="value"
       :placeholder="placeholder"
@@ -41,14 +41,7 @@ export default {
 </script>
 
 <style scoped>
-.custom-input__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .custom-input__input {
-  width: 100%;
-  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }

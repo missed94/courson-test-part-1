@@ -1,7 +1,7 @@
 <template>
   <div class="form-component">
     <form
-      class="form-component__form"
+      class="form-component__form p-4"
       @submit.prevent="handleSubmit"
       @reset.prevent="resetForm"
     >
@@ -55,7 +55,7 @@
         v-model="formData.color"
       />
 
-      <button type="submit" class="form-component__btn btn btn-primary">
+      <button type="submit" class="form-component__btn btn btn-primary me-2">
         Send
       </button>
       <button type="reset" class="form-component__btn btn btn-secondary">
@@ -158,18 +158,13 @@ export default {
 
 <style scoped>
 .form-component {
-  padding: 2rem 1rem;
+  padding: 32px 16px;
 }
 
 .form-component__form {
   max-width: 600px;
   margin: 0 auto;
-  padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
-
-.form-component__btn {
-  margin-right: 1rem;
 }
 </style>

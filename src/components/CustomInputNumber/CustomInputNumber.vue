@@ -1,9 +1,9 @@
 <template>
   <div class="custom-input-number">
-    <label v-if="label" class="custom-input-number__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <div class="d-flex align-items-center">
       <input
-        class="custom-input-number__input form-control"
+        class="custom-input-number__input form-control p-2 w-100 me-1"
         type="number"
         :value="value"
         :placeholder="placeholder"
@@ -14,14 +14,14 @@
       />
       <button
         type="button"
-        class="custom-input-number__button"
+        class="custom-input-number__button p-2"
         @click="decrement"
       >
         -
       </button>
       <button
         type="button"
-        class="custom-input-number__button"
+        class="custom-input-number__button p-2"
         @click="increment"
       >
         +
@@ -78,20 +78,12 @@ export default {
 </script>
 
 <style scoped>
-.custom-input-number__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .custom-input-number__input {
-  width: 100%;
-  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .custom-input-number__button {
-  padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: #f0f0f0;

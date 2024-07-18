@@ -1,6 +1,6 @@
 <template>
   <div class="custom-textarea">
-    <label v-if="label" class="custom-textarea__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <textarea
       class="custom-textarea__input form-control"
       :value="value"
@@ -17,7 +17,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: "",
     },
     value: {
       type: String,
@@ -39,10 +39,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.custom-textarea__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-</style>

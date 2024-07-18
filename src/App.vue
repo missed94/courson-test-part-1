@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app">
     <BaseLayout>
       <FormComponent />
     </BaseLayout>

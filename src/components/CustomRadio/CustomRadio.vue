@@ -3,7 +3,7 @@
     <div
       v-for="input in options"
       :key="input.value"
-      class="custom-radio d-flex align-items-center p-2"
+      class="custom-radio d-flex flex-grow-1 align-items-center p-2"
       :class="{ __checked: value === input.value }"
       @click="onInput(input.value)"
     >
@@ -41,11 +41,10 @@ export default {
 <style scoped>
 .custom-radio__radio-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 .custom-radio {
-  flex: 1 0 auto;
   min-height: 24px;
   border: 1px solid #d3d3d3;
   border-radius: 4px;
@@ -79,8 +78,8 @@ export default {
 .custom-radio.__checked .custom-radio__box:after {
   width: 10px;
   height: 10px;
-  margin-left: -0.3rem;
-  margin-top: -0.3rem;
+  margin-left: -5px;
+  margin-top: -5px;
 }
 
 .custom-radio:hover .custom-radio__box {

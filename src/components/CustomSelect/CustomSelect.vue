@@ -1,9 +1,9 @@
 <template>
   <div class="custom-select">
-    <label class="custom-select__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <div class="dropdown">
       <input
-        class="custom-select__input form-control"
+        class="custom-select__input form-control p-2"
         ref="input"
         type="text"
         placeholder="Search..."
@@ -41,7 +41,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: "",
     },
     value: {
       type: [String, Number],
@@ -99,11 +99,6 @@ export default {
 </script>
 
 <style scoped>
-.custom-select__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .dropdown-menu {
   width: 100%;
   max-height: 200px;

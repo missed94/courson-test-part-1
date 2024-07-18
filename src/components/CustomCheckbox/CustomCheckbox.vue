@@ -1,8 +1,8 @@
 <template>
   <div class="custom-checkbox" @click.stop="click">
-    <div class="custom-checkbox__label">
+    <div class="custom-checkbox__label d-flex align-items-center">
       <div
-        class="custom-checkbox__box d-flex align-items-center justify-content-center position-relative me-2"
+        class="custom-checkbox__box d-flex flex-shrink-0 align-items-center justify-content-center position-relative me-2"
       >
         <svg
           v-if="value"
@@ -20,7 +20,7 @@
         </svg>
       </div>
       <input
-        class="custom-checkbox__input"
+        class="custom-checkbox__input mr-2"
         type="checkbox"
         ref="checkbox"
         :checked="value"
@@ -59,16 +59,9 @@ export default {
 <style scoped>
 .custom-checkbox__label {
   cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.custom-checkbox__input {
-  margin-right: 0.5rem;
 }
 
 .custom-checkbox__box {
-  flex-shrink: 0;
   width: 24px;
   height: 24px;
   border-radius: 4px;

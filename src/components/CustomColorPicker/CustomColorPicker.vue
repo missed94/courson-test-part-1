@@ -1,6 +1,6 @@
 <template>
   <div class="custom-color-picker form-group">
-    <label class="custom-color-picker__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <input
       type="color"
       class="custom-color-picker__input form-control"
@@ -16,7 +16,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: "",
     },
     value: {
       type: String,
@@ -32,11 +32,6 @@ export default {
 </script>
 
 <style scoped>
-.custom-color-picker__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
 .custom-color-picker__input {
   width: 70px;
   height: 50px;

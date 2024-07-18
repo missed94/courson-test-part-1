@@ -1,6 +1,6 @@
 <template>
   <div class="custom-input-file form-group">
-    <label class="custom-input-file__label">{{ label }}</label>
+    <label v-if="label" class="d-block mb-2">{{ label }}</label>
     <input
       class="form-control"
       ref="input"
@@ -18,7 +18,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      required: "",
     },
     value: {
       type: Array,
@@ -41,10 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.custom-input-file__label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-</style>
